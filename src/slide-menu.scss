@@ -1,0 +1,37 @@
+// slide-menu
+
+$menuWidth: 300px;
+
+// wrap everything in #root div to slide page content
+#root {
+  @include transition(all .3s ease-in);
+
+  .slide-menu-open & {
+    transform: translateX($menuWidth);
+    opacity: 0.5;
+  }
+}
+
+// slide-menu base styles
+#slide-menu {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: -$menuWidth;
+  .slide-menu-open & { left: 0px; }
+
+  width: $menuWidth;
+  height: 100%;
+
+  @include transition(all .3s ease-in);
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// prevent scrolling
+body.slide-menu-open {
+  overflow: hidden;
+}
