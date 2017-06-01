@@ -34,6 +34,7 @@ function init() {
 
   // close menu on body click
   document.addEventListener('click', (event) => {
+    event.preventDefault();
     let slideMenu = document.querySelector("#slide-menu");
     var isClickInside = slideMenu.contains(event.target) || event.target == document.getElementById("slide-menu-toggle");
     if(isClickInside) return;
